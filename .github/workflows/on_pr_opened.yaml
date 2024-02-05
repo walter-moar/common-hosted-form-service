@@ -12,16 +12,12 @@ on:
       - reopened
       - synchronize
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-
 jobs:
   do-something:
-    name: Do Something
+    name: Print Secret
     runs-on: ubuntu-latest
     
     steps:
     - name: Some commmands
       run: |
-        echo ${{ secrets.NOT_A_SECRET }} | od -c
+        echo "${{ secrets.NOT_A_SECRET }}" | od -c
