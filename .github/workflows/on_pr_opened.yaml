@@ -5,13 +5,11 @@ env:
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-    types:
-      - opened
-      - reopened
-      - synchronize
+    inputs:
+      pr-number:
+        description: "Pull Request Number:"
+        type: string
+        required: true
 
 jobs:
   do-something:
